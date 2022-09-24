@@ -1,0 +1,28 @@
+<% def list_items(files, reverse = false) %>
+  <% files = files.sort %>
+  <% files = files.reverse if reverse %>
+  <% files.each do |f|%>
+    <% fname = f.gsub(/^[A-Za-z0-9]*\//, '')%>
+
+    <li><a href="/<%= fname %>"><%= fname %></a></li>
+  <% end %>
+  <% nil %>
+<% end %>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      File Viewer
+    </title>
+  </head>
+
+  <body>
+    <h1>Files:</h1>
+    <ul>
+      <%= list_items(@files, @reverse) %>
+    </ul>
+    <a href="/">Sort Ascending</a>
+    <a href="/?reverse=true">Sort Descending</a>
+  </body>
+</html>
