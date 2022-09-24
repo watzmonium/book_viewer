@@ -1,5 +1,5 @@
 require "sinatra"
-require "sinatra/reloader" # causes the application to reload files every time a page is loaded
+require "sinatra/reloader" if development? # causes the application to reload files every time a page is loaded
 require "tilt/erubis"
 require 'digest/bubblebabble'
 
